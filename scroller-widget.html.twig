@@ -1,0 +1,17 @@
+<div class="btn-group-vertical" style="position: fixed; bottom: 20px; right: 20px;">
+    <button class="btn btn-secondary" onclick="scrollToTop()"><i class="fas fa-fast-backward fa-rotate-90"></i></button>
+    <button class="btn btn-secondary" onclick="scrollToLast()"><i class="fas fa-step-backward fa-rotate-90"></i></button>
+    <button class="btn btn-secondary" onclick="scrollToNext()"><i class="fas fa-step-forward fa-rotate-90"></i></button>
+    <button class="btn btn-secondary" onclick="scrollToBottom()"><i class="fas fa-fast-forward fa-rotate-90"></i></button>
+</div>
+{% block javascripts %}
+<script>
+var id="{{ id }}";
+window.onload = scrollTo(id);
+function scrollTo(section) { var el = document.getElementById(section); id = section; el.scrollIntoView(); }
+function scrollToTop() { var el = document.getElementById(0); el.scrollIntoView(); id=0; }
+function scrollToBottom() { var el = document.getElementById(2); el.scrollIntoView(); id=2; }
+function scrollToLast(){ id=id-1; var el = document.getElementById(id); if(null == el) { id = id+1; return false; } el.scrollIntoView(); }
+function scrollToNext(){ id=id+1; var el = document.getElementById(id); if(null == el) { id = id-1; return false; } el.scrollIntoView(); }
+</script>
+{% endblock %}
