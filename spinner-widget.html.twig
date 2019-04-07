@@ -8,7 +8,10 @@
 	height: 100%;
 	z-index: 9999;
 }
-.loader-spin {
+.loader-spin-gif {
+	background: url(../img/spinner.gif) center no-repeat #fff;
+}
+.loader-spin-css {
   border: 16px solid black;
   border-radius: 50%;
   border-top: 16px solid #3498db;
@@ -28,7 +31,7 @@
 }
 </style>
 {% endblock %}
-<div id="spinner" class="loader-spin"></div>
+<div id="spinner" class="loader-spin-css"></div>
 {% block javascripts %}
 <script>
 window.onload = hideSpinner();
